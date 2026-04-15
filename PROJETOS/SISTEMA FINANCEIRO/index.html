@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VizzFinances</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo">VizzFinances</div>
+        <div class="nav-links">
+            <button class="nav-link active" onclick="showPage('home',this)">Início</button>
+            <button class="nav-link" onclick="showPage('dashboard',this)">Dashboard</button>
+            <button class="nav-link" onclick="showPage('contato',this)">Contato</button>
+            <button class="nav-badge" onclick="showPage('dashboard',document.querySelectorAll('.nav-link')[1])">Acessar
+                sistema</button>
+        </div>
+        <div class="nav-links">
+            <button class="nav-link active" onclick="showPage('home',this)">Início</button>
+            <button class="nav-link" onclick="showPage('dashboard',this)">Dashboard</button>
+            <button class="nav-link" onclick="showPage('contato',this)">Contato</button>
+
+            <button class="nav-link" id="btn-tema" onclick="toggleTema()" style="font-size: 1.1rem;"
+                title="Alternar Tema">🌙</button>
+
+            <button class="nav-badge" onclick="showPage('dashboard',document.querySelectorAll('.nav-link')[1])">Acessar
+                sistema</button>
+        </div>
+    </nav>
+
+    <div class="page active" id="page-home">
+        <div class="hero">
+            <div>
+                <div class="hero-tag">Plataforma financeira empresarial</div>
+                <h1>Controle financeiro <span>inteligente</span> para o seu negócio</h1>
+                <p>Centralize receitas, despesas e indicadores em tempo real. Decisões mais rápidas, com dados
+                    confiáveis.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary"
+                        onclick="showPage('dashboard',document.querySelectorAll('.nav-link')[1])">Acessar o
+                        dashboard</button>
+                    <button class="btn-ghost"
+                        onclick="showPage('contato',document.querySelectorAll('.nav-link')[2])">Fale com a
+                        equipe</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mini-card">
+                    <div class="mini-card-label">Saldo do período</div>
+                    <div class="mini-card-val" style="color:var(--primary)">R$ 48.320,00</div>
+                    <div class="mini-bar">
+                        <div class="mini-bar-seg"
+                            style="width:65%;background:var(--success);height:4px;border-radius:2px"></div>
+                        <div class="mini-bar-seg"
+                            style="width:35%;background:var(--danger);height:4px;border-radius:2px"></div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;margin-top:4px">
+                        <span style="font-size:0.7rem;color:var(--success)">↑ Receitas 65%</span>
+                        <span style="font-size:0.7rem;color:var(--danger)">↓ Despesas 35%</span>
+                    </div>
+                </div>
+                <div style="font-size:0.72rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Evolução mensal
+                </div>
+                <div class="sparkline">
+                    <div class="spark-col" style="height:45%"></div>
+                    <div class="spark-col" style="height:55%"></div>
+                    <div class="spark-col" style="height:50%"></div>
+                    <div class="spark-col" style="height:70%"></div>
+                    <div class="spark-col" style="height:60%"></div>
+                    <div class="spark-col" style="height:80%"></div>
+                    <div class="spark-col" style="height:75%"></div>
+                    <div class="spark-col" style="height:90%"></div>
+                    <div class="spark-col" style="height:85%"></div>
+                    <div class="spark-col" style="height:100%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="section-label">Funcionalidades</div>
+            <div class="section-title">Tudo que sua empresa precisa</div>
+            <div class="section-sub">Gestão financeira completa em uma plataforma simples e eficiente.</div>
+            <div class="features-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">📊</div>
+                    <h3>Dashboard em tempo real</h3>
+                    <p>Acompanhe saldo, receitas e despesas consolidados com atualização instantânea.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">📈</div>
+                    <h3>Cotações de mercado</h3>
+                    <p>Dólar, Euro e Bitcoin integrados via API para contexto financeiro sempre atualizado.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🔎</div>
+                    <h3>Busca e filtros</h3>
+                    <p>Encontre qualquer lançamento em segundos com pesquisa inteligente por descrição ou observação.
+                    </p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🗂️</div>
+                    <h3>Categorização</h3>
+                    <p>Classifique lançamentos por tipo: salário, serviços, impostos, despesas fixas e variáveis.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">💾</div>
+                    <h3>Dados persistentes</h3>
+                    <p>Seus lançamentos ficam salvos localmente — disponíveis sempre que você voltar.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🌙</div>
+                    <h3>Modo escuro</h3>
+                    <p>Interface adaptada para uso diurno e noturno, com preferência salva automaticamente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page-dashboard">
+        <div class="dash">
+            <div class="dash-header">
+                <div>
+                    <h2>Visão geral financeira</h2>
+                    <p id="dash-date">Carregando data...</p>
+                </div>
+                <button class="btn-primary" onclick="document.getElementById('formModal').style.display='flex'">+ Novo
+                    lançamento</button>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi">
+                    <div class="kpi-label">Saldo atual</div>
+                    <div class="kpi-val" id="kpi-saldo" style="color:var(--primary)">R$ 0,00</div>
+                    <div class="kpi-delta delta-up" id="kpi-saldo-delta">Calculando...</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Total de receitas</div>
+                    <div class="kpi-val" id="kpi-receitas" style="color:var(--success)">R$ 0,00</div>
+                    <div class="kpi-delta delta-up">↑ Período atual</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Total de despesas</div>
+                    <div class="kpi-val" id="kpi-despesas" style="color:var(--danger)">R$ 0,00</div>
+                    <div class="kpi-delta delta-down">↓ Período atual</div>
+                </div>
+            </div>
+
+            <div class="dash-grid">
+                <div>
+                    <div class="card" style="margin-bottom:1rem">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Movimentações</div>
+                                <div class="card-sub" id="tx-count">0 lançamentos</div>
+                            </div>
+                            <input type="text" id="busca" placeholder="Buscar..."
+                                style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-size:0.8rem;width:160px;background:var(--bg);color:var(--text);outline:none">
+                        </div>
+                        <ul id="tx-list" style="list-style:none;max-height:300px;overflow-y:auto"></ul>
+                        <p id="tx-empty" style="font-size:0.82rem;color:var(--muted);display:none;padding:.5rem 0">
+                            Nenhum lançamento encontrado.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Distribuição de despesas</div>
+                        </div>
+                        <div class="chart-bars" id="cat-chart">
+                            <div style="font-size:0.78rem;color:var(--muted)">Adicione lançamentos para ver o gráfico.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="margin-bottom:1rem">
+                        <div class="card-header">
+                            <div class="card-title">Cotações do mercado</div>
+                            <div class="card-sub" id="mkt-time"></div>
+                        </div>
+                        <ul id="mkt-list" style="list-style:none">
+                            <li style="font-size:0.8rem;color:var(--muted)">Carregando...</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Visão rápida</div>
+                        </div>
+                        <div id="quick-stats" style="display:flex;flex-direction:column;gap:.5rem">
+                            <div
+                                style="display:flex;justify-content:space-between;font-size:0.8rem;padding:.4rem 0;border-bottom:1px solid var(--border)">
+                                <span style="color:var(--muted)">Maior receita</span>
+                                <span id="qs-maior-r" style="font-weight:500">—</span>
+                            </div>
+                            <div
+                                style="display:flex;justify-content:space-between;font-size:0.8rem;padding:.4rem 0;border-bottom:1px solid var(--border)">
+                                <span style="color:var(--muted)">Maior despesa</span>
+                                <span id="qs-maior-d" style="font-weight:500">—</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.8rem;padding:.4rem 0">
+                                <span style="color:var(--muted)">Nº de lançamentos</span>
+                                <span id="qs-count" style="font-weight:500">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page-contato">
+        <div class="contact">
+            <div class="contact-card">
+                <div class="contact-head">
+                    <div class="nav-logo" style="margin-bottom:.5rem">VizzFinances</div>
+                    <h2 style="font-size:1.4rem;font-weight:700;color:var(--text)">Entre em contato</h2>
+                    <p>Tire suas dúvidas ou solicite uma demonstração para a sua empresa.</p>
+                </div>
+                <div class="contact-info">
+                    <div class="info-chip">📱 WhatsApp disponível</div>
+                    <div class="info-chip">⚡ Resposta rápida</div>
+                </div>
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome / Empresa</label>
+                            <input type="text" id="c-nome" placeholder="Ex: Empresa LTDA">
+                        </div>
+                        <div class="form-group">
+                            <label>Assunto</label>
+                            <select id="c-assunto">
+                                <option>Demonstração</option>
+                                <option>Suporte técnico</option>
+                                <option>Informações comerciais</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:.75rem">
+                        <label>Mensagem</label>
+                        <textarea id="c-msg" rows="4" placeholder="Descreva como podemos ajudar..."
+                            style="resize:none"></textarea>
+                    </div>
+                    <button class="submit-btn" onclick="enviarWpp()">Enviar via WhatsApp</button>
+                    <div id="c-feedback" class="feedback">Redirecionando para o WhatsApp...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="formModal"
+        style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center">
+        <div
+            style="background:var(--surface);border-radius:16px;padding:2rem;width:90%;max-width:480px;position:relative">
+            <button onclick="document.getElementById('formModal').style.display='none'"
+                style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted)">✕</button>
+            <h3 style="font-size:1rem;font-weight:600;margin-bottom:1.25rem">Novo lançamento</h3>
+            <div class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <input type="text" id="f-desc" placeholder="Ex: Conta de Luz">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor (R$)</label>
+                        <input type="number" id="f-valor" step="0.01" min="0.01" placeholder="150.00">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom:.75rem">
+                    <label>Tipo</label>
+                    <select id="f-tipo">
+                        <optgroup label="Receitas (+)">
+                            <option value="receita-salario">Salário / Pró-labore</option>
+                            <option value="receita-servico">Prestação de Serviço</option>
+                            <option value="receita-rendimento">Rendimentos</option>
+                        </optgroup>
+                        <optgroup label="Despesas (-)">
+                            <option value="despesa-fixa">Despesa Fixa</option>
+                            <option value="despesa-variavel">Despesa Variável</option>
+                            <option value="despesa-imposto">Impostos e Taxas</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom:.75rem">
+                    <label>Observação (opcional)</label>
+                    <input type="text" id="f-obs" placeholder="Ex: Referente ao mês de abril">
+                </div>
+                <button class="submit-btn" onclick="salvarLancamento()">Salvar lançamento</button>
+                <div id="f-feedback" class="feedback">Lançamento salvo com sucesso!</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

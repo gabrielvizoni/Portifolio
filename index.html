@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfólio | Gabriel Vizoni</title>
+</head>
+
+<body>
+    <div class="particulas">
+
+
+    </div>
+    <nav class="menu-topo">
+        <ul class="lista-menu">
+            <li>
+                <a href="#Início" class="link-menu">Início</a>
+            </li>
+            <li>
+                <a href="#Sobre" class="link-menu">Sobre</a>
+            </li>
+            <li>
+                <a href="#Projetos" class="link-menu">Projetos</a>
+            </li>
+            <li>
+                <a href="#Contatos" class="link-menu">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main id="Início" class="secao-inicio">
+        <img src="./img/Perfil.png" alt="Foto de Gabriel Vizoni" class="foto-perfil">
+        <h1> Gabriel Vizoni </h1>
+        <p class="texto-profissao">Entusiasta de Tecnologia</p>
+    </main>
+
+    <section id="Sobre" class="secao-sobre">
+        <h2 class="titulo-sobre">About Me</h2>
+
+        <div class="caixa-sobre">
+            <p class="texto-sobre">
+                Olá! Sou Gabriel Vizoni, estudante do 3º semestre de Análise e Desenvolvimento de Sistemas na Unicesumar
+                de Maringá e apaixonado por tecnologia e desenvolvimento de sistemas.
+            </p>
+
+            <p class="texto-sobre">
+                Este é o meu portfólio pessoal, desenvolvido integralmente por mim utilizando HTML, CSS e JavaScript.
+                Busco uma oportunidade para iniciar minha carreira na área de desenvolvimento de software, aplicando
+                meus conhecimentos e contribuindo com soluções criativas e eficientes.
+            </p>
+
+            <hr class="divider">
+
+            <p class="texto-sobre">
+                Hello! I'm Gabriel Vizoni, a third-semester Systems Analysis and Development student at Unicesumar in
+                Maringá, passionate about technology and software development.
+            </p>
+
+            <p class="texto-sobre">
+                This is my personal portfolio, fully built by me using HTML, CSS, and JavaScript. I'm seeking an
+                opportunity to start my career in software development and contribute with creative and efficient
+                solutions. If you'd like to connect or learn more about my projects, feel free to reach out.
+            </p>
+        </div>
+    </section>
+
+    <section id="Projetos" class="secao-projetos">
+        <h2 class="titulo-projetos"> My Projects</h2>
+        <div class="grade-projetos">
+
+            <div class="caixa-projeto">
+                <a href="./PROJETOS/TELA DE LOGIN/projeto1.html">
+                    <img src="./PROJETOS/TELA DE LOGIN/img/fundo caixa.png" alt="wallpaper-teste" class="imagem-projeto">
+                    <div class="caixa-projeto-texto">
+                        <h3 class="titulo-projeto">Login Screen</h3>
+                        <p class="descricao-projeto">Login interface made with HTML and CSS</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="caixa-projeto">
+                <a href="./PROJETOS/PLANOS2026/plano2026.html">
+                    <img src="./PROJETOS/PLANOS2026/img/imagemcaixa.png" alt="wallpaper-teste" class="imagem-projeto">
+                    <div class="caixa-projeto-texto">
+                        <h3 class="titulo-projeto">My Professional Development Plan</h3>
+                        <p class="descricao-projeto">This roadmap reflects my structured approach to professional growth
+                            and my commitment to becoming a reliable Full Stack Developer ready for international remote
+                            teams.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="caixa-projeto">
+                <a href="./PROJETOS/SISTEMA FINANCEIRO/index.html">
+                    <img src="./PROJETOS/SISTEMA FINANCEIRO/img/imagemfundo.png" alt="wallpaper-teste" class="imagem-projeto">
+                    <div class="caixa-projeto-texto">
+                        <h3 class="titulo-projeto">Project | VizzFinances</h3>
+                        <p class="descricao-projeto">A modern B2B financial landing page built with HTML, CSS, and Vanilla JavaScript, featuring Dark Mode and WhatsApp integration.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="Contatos" class="secao-contato">
+        <h2 class="titulo-contato">Contacts</h2>
+        <form class="formulario-caixa-maior" id="formulario" onsubmit="enviarWhatsapp(event)">
+            <div class="formulario-caixa-menor">
+                <input placeholder="Name" class="campo-texto" id="nome">
+            </div>
+
+            <div class="formulario-caixa-menor">
+                <textarea class="campo-texto" placeholder="Text your mensage here!" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-enviar">Send WhatsApp</button>
+        </form>
+
+    </section>
+
+    <script>
+        function enviarWhatsapp(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+            const telefone = '5544999304702';
+
+            const texto = `Hello! My name is ${nome}. ${mensagem}`;
+            const mensagemFormatada = encodeURIComponent(texto);
+
+            const url = `https://wa.me/${telefone}?text=${mensagemFormatada}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
